@@ -1,0 +1,59 @@
+function examPreperation(input) {
+
+    let contractlenght = (input[0]);
+    let contractType = (input[1]);
+    let internet = (input[2]);
+    let pcsPayment = Number(input[3]);
+
+    let cotractPrice = 0;
+    let internetPrice = 0;
+    let sum = 0;
+
+    switch (contractlenght) {
+        case "one":
+            if (contractType === "Small") {
+                cotractPrice = 9.98;
+                internetPrice = 5.50;
+            } else if (contractType === "Middle") {
+                cotractPrice = 18.99;
+                internetPrice = 4.35;
+            } else if (contractType === "Large") {
+                cotractPrice = 25.98;
+                internetPrice = 4.35;
+            } else {
+                cotractPrice = 35.99;
+                internetPrice = 3.85;
+            }
+            break;
+        case "two":
+            if (contractType === "Small") {
+                cotractPrice = 8.58;
+                internetPrice = 5.50;
+            } else if (contractType === "Middle") {
+                cotractPrice = 17.09;
+                internetPrice = 4.35;
+            } else if (contractType === "Large") {
+                cotractPrice = 23.59;
+                internetPrice = 4.35;
+            } else {
+                cotractPrice = 31.79;
+                internetPrice = 3.85;
+            }        
+            break;  
+    }
+
+    if (internet === "yes" && contractlenght === "two") {
+        sum = ((cotractPrice + internetPrice) * pcsPayment) * 0.9625;
+        }  else if (internet === "yes" && contractlenght === "one") {
+            sum = (cotractPrice + internetPrice) * pcsPayment
+        } else if (internet === "no" && contractlenght === 'two') {
+        sum = (cotractPrice * pcsPayment) * 0.9625
+    } else {
+        sum = cotractPrice * pcsPayment
+    }
+
+    
+
+    console.log(`${sum.toFixed(2)} lv.`);
+
+}
